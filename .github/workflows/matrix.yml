@@ -13,3 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ matrix.title }} = ${{ matrix.value }}"
+      
+  matrix-with-includes:
+    strategy:
+      matrix:
+        title: [ first, second ]
+        value: [ 1, 2, 3 ]
+        include:
+          - anotherValue: test
+          - title: first
+            anotherValue: test-first
+    name: "Run with includes: ${{ matrix.title }} : ${{ matrix.value }}, ${{ matrix.anotherValue }}"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ matrix.title }} = ${{ matrix.value }} + ${{ matrix.anotherValue }}"
