@@ -1,0 +1,21 @@
+name: Using of a matrix
+
+permissions:
+  id-token: write
+
+on:
+  workflow_dispatch
+  
+job:
+    example1:
+        strategy:
+            matrix:
+                name: [ 'first', 'second' ]
+                value: [ 1, 2, 3 ]
+        name: simple matrix
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+                echo ${{ matrix.name }}: ${{ matrix.value }}
+              
+          
