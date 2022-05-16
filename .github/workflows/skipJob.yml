@@ -16,8 +16,8 @@ jobs:
       - run: echo "run job"
       
   example-job-2:
-    name: "Run job"
-    if: ${{ inputs.skipJob != 'true' }}
+    name: "Skip job"
+    if: ${{ inputs.skipJob != true }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "run job"
