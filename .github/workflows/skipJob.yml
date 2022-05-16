@@ -1,0 +1,23 @@
+name: Skipping a job
+
+on:
+  workflow_dispatch:
+    inputs:
+      skipJob: 
+        type: boolean
+        default: false
+        required: false
+  
+jobs:
+  example-job-1:
+    name: "Run job"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "run job"
+      
+  example-job-2:
+    name: "Run job"
+    if: ${{ inputs.skipJob != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "run job"
