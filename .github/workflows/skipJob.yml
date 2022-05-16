@@ -5,7 +5,7 @@ on:
     inputs:
       skipJob: 
         type: boolean
-        default: false
+        default: true
         required: false
   
 jobs:
@@ -18,7 +18,7 @@ jobs:
       
   example-job-2:
     name: "Skip job"
-    if: ${{ false }}
+    if: ${{ skipJob == false }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "should not run"
