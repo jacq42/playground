@@ -17,8 +17,15 @@ jobs:
           echo "run job: skip = ${{ github.event.inputs.skipJob }}"
       
   example-job-2:
-    name: "Skip job"
+    name: "Skip job 1"
     if: ${{ github.event.inputs.skipJob == false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "should not run"
+      
+  example-job-3:
+    name: "Skip job 2"
+    if: ${{ inputs.skipJob == false }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "should not run"
