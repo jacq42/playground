@@ -13,7 +13,8 @@ jobs:
     name: "Run job"
     runs-on: ubuntu-latest
     steps:
-      - run: echo "run job: skip = ${{ inputs.skipJob }}"
+      - run: |
+          echo "run job: skip = ${{ github.event.inputs.skipJob }}"
       
   example-job-2:
     name: "Skip job"
