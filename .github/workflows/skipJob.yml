@@ -18,7 +18,7 @@ jobs:
       
   example-job-2:
     name: "Skip job"
-    if: ${{ inputs.skipJob != true }}
+    if: ${{ github.event.inputs.skipJob != true }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "run job"
