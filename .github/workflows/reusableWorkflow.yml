@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       skipJob: 
-        type: string # boolean is not working https://github.com/actions/runner/issues/1483
+        type: boolean
         default: true
         required: false
   
@@ -18,14 +18,14 @@ jobs:
           
   example-job-2:
     name: "Skip job"
-    if: ${{ github.event.inputs.skipJob == 'false' }}
+    if: ${{ github.event.inputs.skipJob == false }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "should not run"
       
   example-job-3:
     name: "Skip another job"
-    if: ${{ github.event.inputs.skipJob != 'true' }}
+    if: ${{ !github.event.inputs.skipJob }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "should not run"
