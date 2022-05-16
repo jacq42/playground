@@ -24,7 +24,7 @@ jobs:
       - run: echo "should not run"
       
   example-job-3:
-    name: "Skip job 2"
+    name: "Skip another job"
     if: ${{ !github.event.inputs.skipJob }}
     runs-on: ubuntu-latest
     steps:
