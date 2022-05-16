@@ -34,4 +34,4 @@ jobs:
     name: "Call another workflow"    
     uses: ./.github/workflows/reusableWorkflow.yml
     with:
-      skipJob: ${{ github.event.inputs.skipJob }}
+      skipJob: "${{ github.event.inputs.skipJob }}"
