@@ -42,4 +42,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        echo "Return value: ${{needs.example-job-4.outputs.return}}"
+          echo "Return value: ${{needs.example-job-4.outputs.return}}"
