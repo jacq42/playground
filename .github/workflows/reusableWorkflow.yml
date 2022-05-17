@@ -7,6 +7,9 @@ on:
         type: boolean
         default: true
         required: false
+    outputs:
+      return:
+        value: ${{ jobs.example-job-1.outputs.return }}
   
 jobs:
   example-job-1:
