@@ -12,9 +12,14 @@ jobs:
   example-job-1:
     name: "Run job"
     runs-on: ubuntu-latest
+    outputs:
+      return: ${{ steps.step1.outputs.test }}
     steps:
       - run: |
           echo "run job: skip = ${{ github.event.inputs.skipJob }}"
+      - id: step1
+        run: |
+          echo "::set-output name=test::hello"
           
   example-job-2:
     name: "Skip job"
