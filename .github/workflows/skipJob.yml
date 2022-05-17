@@ -35,3 +35,10 @@ jobs:
     uses: ./.github/workflows/reusableWorkflow.yml
     with:
       skipJob: ${{ github.event.inputs.skipJob == 'true' }}
+      
+  example-job-5:
+    name: "return value"
+    needs: [ example-job-4 ]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{needs.example-job-4.outputs.return}}
