@@ -1,0 +1,34 @@
+name: With skipped jobs
+
+on:
+  workflow_dispatch:
+    inputs:
+      skipJob: 
+        type: boolean
+        default: true
+        required: false
+  
+jobs:
+  job-to-be-skipped:
+    name: Should not run
+    if: ${{ github.event.inputs.skipJob == 'false' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "should not run"
+          
+  job-to-be-skipped-2:
+    name: Should also not run
+    if: ${{ github.event.inputs.skipJob == 'false' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "should not run"
+          
+   job-to-run:
+    name: Tests are skipped
+    if: ${{ github.event.inputs.skipJob == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "jobs has been skipped. continue workflow."
