@@ -6,7 +6,7 @@ on:
 jobs:
   workflow-afterdeploy-test:
     name: Tests
-    uses: ./.github/workflows/reusableWorkflow.yml
+    uses: ./.github/workflows/reusableSkip.yml
     
   workflow-fit:
     name: Fit
