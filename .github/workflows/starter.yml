@@ -28,3 +28,13 @@ jobs:
     name: Fit
     needs: [ workflow-to-be-skipped ]
     uses: ./.github/workflows/reusableRun.yml
+    
+  workflow-to-be-skipped-not-working:
+    name: Tests2
+    if: github.event.inputs.skipJob == 'false'
+    uses: ./.github/workflows/withSkippedJobs.yml
+    
+  workflow-should-run-after-skipped-workflow-not-working:
+    name: Fit2
+    needs: [ workflow-to-be-skipped-not-working ]
+    uses: ./.github/workflows/reusableRun.yml
