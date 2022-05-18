@@ -1,6 +1,6 @@
 # Playground
 
-## ... for GitHub actions ::clapper:
+## ... for GitHub actions :clapper:
 
 Contains examples for GitHub actions: :rocket:
 * [Using of a matrix](https://github.com/jacq42/playground/actions/workflows/matrix.yml)
