@@ -1,7 +1,7 @@
 name: With skipped jobs
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       skipJob: 
         type: boolean
