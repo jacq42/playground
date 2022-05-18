@@ -1,14 +1,21 @@
 name: Starter
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      skipJob: 
+        type: boolean
+        default: true
+        required: false
   
 jobs:
   workflow-afterdeploy-test:
     name: Tests
+    if: github.event.inputs.skipJob == 'false'
     uses: ./.github/workflows/reusableSkip.yml
     
   workflow-fit:
     name: Fit
+    if: success() || github.event.inputs.skipJob == 'true'
     needs: [ workflow-afterdeploy-test ]
     uses: ./.github/workflows/reusableWorkflow.yml
