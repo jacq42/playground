@@ -32,7 +32,7 @@ jobs:
   workflow-to-be-skipped-not-working:
     name: Tests2
     if: github.event.inputs.skipJob == 'false'
-    uses: ./.github/workflows/withSkippedJobs.yml
+    uses: ./.github/workflows/withFailingJob.yml
     
   workflow-should-run-after-skipped-workflow-not-working:
     name: Fit2
