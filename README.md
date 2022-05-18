@@ -1,5 +1,7 @@
 # Playground
 
+## ... for GitHub actions
+
 Contains examples for GitHub actions:
 * [Using of a matrix](https://github.com/jacq42/playground/actions/workflows/matrix.yml)
 * [Starter and reusable workflow](https://github.com/jacq42/playground/actions/workflows/starter.yml)
