@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: Print input values
         run: |
-          echo "### Inputs :clipboard: \n \
-          ~~~ \n \
-          skipJob = ${{ github.event.inputs.skipJob }} \n \
-          ~~~" >> $GITHUB_STEP_SUMMARY
+          echo "### Inputs :clipboard:" >> $GITHUB_STEP_SUMMARY
+          echo "~~~" >> $GITHUB_STEP_SUMMARY
+          echo "skipJob = ${{ github.event.inputs.skipJob }}" >> $GITHUB_STEP_SUMMARY
+          echo "~~~" >> $GITHUB_STEP_SUMMARY
           
   workflow-afterdeploy-test:
     name: Tests
