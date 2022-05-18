@@ -36,6 +36,6 @@ jobs:
     
   workflow-should-run-after-skipped-workflow-not-working:
     name: Fit2
-    if: always()
+    if: always() && !failure()
     needs: [ workflow-to-be-skipped-not-working ]
     uses: ./.github/workflows/reusableRun.yml
