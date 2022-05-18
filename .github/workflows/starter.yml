@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "### Workflow run with inputs :clipboard:" >> $GITHUB_STEP_SUMMARY
+          echo "### Workflow runs with input parameters :clipboard:" >> $GITHUB_STEP_SUMMARY
           echo "~~~" >> $GITHUB_STEP_SUMMARY
           echo "skipJob = ${{ github.event.inputs.skipJob }}" >> $GITHUB_STEP_SUMMARY
           echo "no more params" >> $GITHUB_STEP_SUMMARY
@@ -36,5 +36,6 @@ jobs:
     
   workflow-should-run-after-skipped-workflow-not-working:
     name: Fit2
+    if: github.event.inputs.skipJob == 'true'
     needs: [ workflow-to-be-skipped-not-working ]
     uses: ./.github/workflows/reusableRun.yml
