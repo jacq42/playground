@@ -27,6 +27,6 @@ jobs:
     
   workflow-fit:
     name: Fit
-    if: ${{ jobs.status == 'success' || github.event.inputs.skipJob == 'true' }}
+    if: ${{ needs.workflow-test.status == 'success' || github.event.inputs.skipJob == 'true' }}
     needs: [ workflow-test ]
     uses: ./.github/workflows/reusableRun.yml
