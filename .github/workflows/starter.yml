@@ -17,16 +17,16 @@ jobs:
           echo "### Inputs :clipboard:" >> $GITHUB_STEP_SUMMARY
           echo "~~~" >> $GITHUB_STEP_SUMMARY
           echo "skipJob = ${{ github.event.inputs.skipJob }}" >> $GITHUB_STEP_SUMMARY
-          echo "skipJob = ${{ github.event.inputs.skipJob }}" >> $GITHUB_STEP_SUMMARY
+          echo "no more params" >> $GITHUB_STEP_SUMMARY
           echo "~~~" >> $GITHUB_STEP_SUMMARY
           
   workflow-test:
     name: Tests
-    if: ${{ !github.event.inputs.skipJob }}
-    uses: ./.github/workflows/reusableSkip.yml
+    if: github.event.inputs.skipJob == 'false'
+    uses: ./.github/workflows/reusableRun.yml
     
   workflow-fit:
     name: Fit
-    if: success() || github.event.inputs.skipJob
+    if: ${{ jobs.status == 'success' || github.event.inputs.skipJob == 'true' }}
     needs: [ workflow-test ]
-    uses: ./.github/workflows/reusableWorkflow.yml
+    uses: ./.github/workflows/reusableRun.yml
