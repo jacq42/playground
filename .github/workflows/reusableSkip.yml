@@ -5,9 +5,18 @@ on:
   
 jobs:
   example-job-1:
-    name: "Run job"
+    name: "Skip job"
     if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo "run job: skip = ${{ github.event.inputs.skipJob }}"
+  
+  example-job-2:
+    name: "Run job 2"
+    needs: [ example-job-1 ]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "status: :rocket:" >> $GITHUB_STEP_SUMMARY
