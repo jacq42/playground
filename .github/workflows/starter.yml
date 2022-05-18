@@ -22,11 +22,11 @@ jobs:
           
   workflow-test:
     name: Tests
-    if: github.event.inputs.skipJob == 'false'
+    if: ${{ github.event.inputs.skipJob == 'false' }}
     uses: ./.github/workflows/reusableRun.yml
     
   workflow-fit:
     name: Fit
-    if: ${{ needs.workflow-test.status == 'success' || github.event.inputs.skipJob == 'true' }}
+    if: ${{ github.action_status == 'success' || github.event.inputs.skipJob == 'true' }}
     needs: [ workflow-test ]
     uses: ./.github/workflows/reusableRun.yml
