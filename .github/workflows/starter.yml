@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "### Workflow runs with input parameters :clipboard:" >> $GITHUB_STEP_SUMMARY
+          echo "### :clipboard: Workflow was executed with these input parameters: " >> $GITHUB_STEP_SUMMARY
           echo "~~~" >> $GITHUB_STEP_SUMMARY
           echo "skipJob = ${{ github.event.inputs.skipJob }}" >> $GITHUB_STEP_SUMMARY
           echo "no more params" >> $GITHUB_STEP_SUMMARY
