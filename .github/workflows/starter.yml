@@ -1,4 +1,4 @@
-name: Test
+name: Starter
 
 on:
   workflow_dispatch
@@ -6,7 +6,6 @@ on:
 jobs:
   workflow-afterdeploy-test:
     name: Tests
-    if: ${{ false }}
     uses: ./.github/workflows/reusableWorkflow.yml
     
   workflow-fit:
