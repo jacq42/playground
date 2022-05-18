@@ -6,3 +6,4 @@ Contains examples for GitHub actions:
 * [Skipping a job (also in reusable workflow)](https://github.com/jacq42/playground/actions/workflows/skipJob.yml)
 * [Return output to starter workflow](https://github.com/jacq42/playground/actions/workflows/skipJob.yml)
 * [Trigger by workflow call](https://github.com/jacq42/playground/actions/workflows/reusableSkip.yml)
+* [Print to summary](https://github.com/jacq42/playground/actions/workflows/starter.yml)
