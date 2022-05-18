@@ -21,13 +21,13 @@ jobs:
           echo "skipJob = ${{ github.event.inputs.skipJob }}" >> $GITHUB_STEP_SUMMARY
           echo "~~~" >> $GITHUB_STEP_SUMMARY
           
-  workflow-afterdeploy-test:
+  workflow-test:
     name: Tests
     if: ${{ !github.event.inputs.skipJob }}
     uses: ./.github/workflows/reusableSkip.yml
     
   workflow-fit:
     name: Fit
-    if: success() || github.event.inputs.skipJob
-    needs: [ workflow-afterdeploy-test ]
+    if: needs.workflow-test.status == 'success' || github.event.inputs.skipJob
+    needs: [ workflow-test ]
     uses: ./.github/workflows/reusableWorkflow.yml
