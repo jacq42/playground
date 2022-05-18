@@ -26,7 +26,7 @@ jobs:
           echo "should not run"
           
   job-to-run:
-    name: Tests are skipped (check)
+    name: Continue on skipped tests
     if: ${{ github.event.inputs.skipJob == 'true' }}
     runs-on: ubuntu-latest
     steps:
