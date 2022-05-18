@@ -11,7 +11,7 @@ on:
 jobs:
   workflow-afterdeploy-test:
     name: Tests
-    if: github.event.inputs.skipJob == 'false'
+    if: ${{ !github.event.inputs.skipJob }}
     uses: ./.github/workflows/reusableSkip.yml
     
   workflow-fit:
