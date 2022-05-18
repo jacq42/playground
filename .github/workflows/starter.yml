@@ -38,4 +38,4 @@ jobs:
     if: always()
     steps:
       - run: |
-          echo "status: ${{ github.action_status }}"
+          echo "status: ${{ needs.workflow-test.status }}"
