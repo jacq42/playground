@@ -1,0 +1,24 @@
+on:
+  workflow_call:
+    inputs:
+      skipJob: 
+        type: boolean
+        default: true
+        required: false
+  
+jobs:
+  job-to-be-skipped:
+    name: Skipped by input param (selenium)
+    if: ${{ github.event.inputs.skipJob == 'false' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          exit(1)
+          
+  job-to-be-skipped-2:
+    name: Skipped by input param too (cdc)
+    if: ${{ github.event.inputs.skipJob == 'false' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "should not run"
