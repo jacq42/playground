@@ -1,7 +1,7 @@
 name: Skipping a job with a reusable workflow
 
 on:
-  workflow_call:
+  workflow_call
   
 jobs:
   example-job-1:
