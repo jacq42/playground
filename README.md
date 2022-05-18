@@ -9,3 +9,4 @@ Contains examples for GitHub actions:
 * [Return output to starter workflow](https://github.com/jacq42/playground/actions/workflows/skipJob.yml)
 * [Trigger by workflow call](https://github.com/jacq42/playground/actions/workflows/reusableSkip.yml)
 * [Print to summary](https://github.com/jacq42/playground/actions/workflows/starter.yml)
+* [Workflow conditions](https://github.com/jacq42/playground/actions/workflows/starter.yml)
