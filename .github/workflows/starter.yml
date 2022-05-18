@@ -16,6 +16,6 @@ jobs:
     
   workflow-fit:
     name: Fit
-    if: success() || github.event.inputs.skipJob == true
+    if: success() || github.event.inputs.skipJob
     needs: [ workflow-afterdeploy-test ]
     uses: ./.github/workflows/reusableWorkflow.yml
