@@ -39,4 +39,4 @@ jobs:
     steps:
       - run: |
           echo "status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
-          echo "status test: ${{ needs.workflow-test.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "status test: ${{ needs.workflow-test.success }}" >> $GITHUB_STEP_SUMMARY
