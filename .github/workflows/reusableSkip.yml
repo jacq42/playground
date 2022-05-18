@@ -1,0 +1,13 @@
+name: Skipping a job with a reusable workflow
+
+on:
+  workflow_call:
+  
+jobs:
+  example-job-1:
+    name: "Run job"
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "run job: skip = ${{ github.event.inputs.skipJob }}"
