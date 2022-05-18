@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "### Inputs :clipboard:" >> $GITHUB_STEP_SUMMARY
+          echo "### Workflow run with inputs :clipboard:" >> $GITHUB_STEP_SUMMARY
           echo "~~~" >> $GITHUB_STEP_SUMMARY
           echo "skipJob = ${{ github.event.inputs.skipJob }}" >> $GITHUB_STEP_SUMMARY
           echo "no more params" >> $GITHUB_STEP_SUMMARY
@@ -27,6 +27,15 @@ jobs:
     
   workflow-fit:
     name: Fit
-    if: ${{ github.action_status == 'success' || github.event.inputs.skipJob == 'true' }}
+    if: ${{ github.action_status == 'success' }}
     needs: [ workflow-test ]
     uses: ./.github/workflows/reusableRun.yml
+    
+  summary:
+    name: summary
+    runs-on: ubuntu-latest
+    needs: [ workflow-test ]
+    if: always()
+    steps:
+      - run: |
+          echo "status: ${{ github.action_status }}"
