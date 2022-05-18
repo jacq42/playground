@@ -7,9 +7,9 @@ jobs:
   workflow-afterdeploy-test:
     name: Tests
     if: ${{ false }}
-    uses: ./.github/workflows/matrix.yml
+    uses: ./.github/workflows/reusableWorkflow.yml
     
   workflow-fit:
     name: Fit
     needs: [ workflow-afterdeploy-test ]
-    uses: ./.github/workflows/matrix.yml
+    uses: ./.github/workflows/reusableWorkflow.yml
