@@ -9,6 +9,17 @@ on:
         required: false
   
 jobs:
+  info:
+    name: Input values
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print input values
+        run: |
+          echo "### Inputs :clipboard:" >> $GITHUB_STEP_SUMMARY
+          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo "skipJob = ${{ github.event.inputs.skipJob }}" >> $GITHUB_STEP_SUMMARY
+          echo "```" >> $GITHUB_STEP_SUMMARY
+          
   workflow-afterdeploy-test:
     name: Tests
     if: ${{ !github.event.inputs.skipJob }}
