@@ -14,6 +14,21 @@ jobs:
     steps:
       - run: echo "${{ matrix.title }} = ${{ matrix.value }}"
       
+  example-alarm:
+    strategy:
+      matrix:
+        alarmName: [ "MinInstances", "Errors" ]
+        stage: [ live, develop ]
+        include:
+          - alarmName: "Http5XX"
+            stage: live
+          - alarmName: "MinRequestCount"
+            stage: live
+    name: "Run ${{ matrix.alarmName }} : ${{ matrix.stage }}"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ matrix.alarmName }} = ${{ matrix.stage }}"
+      
   matrix-with-includes:
     strategy:
       matrix:
