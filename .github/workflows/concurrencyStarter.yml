@@ -7,7 +7,6 @@ jobs:
   deploy-develop:
     name: Deploy develop
     uses: ./.github/workflows/concurrencyDeploy.yml
-    concurrency: deploy
     with:
       stage: develop
       sleepDuration: '1m'
@@ -15,7 +14,6 @@ jobs:
   deploy-fit:
     name: Deploy fit
     uses: ./.github/workflows/concurrencyDeploy.yml
-    concurrency: deploy
     with:
       stage: fit
       sleepDuration: '10s'
@@ -24,6 +22,5 @@ jobs:
     name: Deploy live
     needs: [ deploy-fit ]
     uses: ./.github/workflows/concurrencyDeploy.yml
-    concurrency: deploy
     with:
       stage: live
