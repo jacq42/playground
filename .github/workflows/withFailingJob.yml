@@ -1,3 +1,5 @@
+name: With failing jobs
+
 on:
   workflow_call:
     inputs:
