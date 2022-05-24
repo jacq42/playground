@@ -15,14 +15,14 @@ on:
         description: 'time to sleep'
         required: false
         type: string
-        default: 30s
+        default: '30s'
         
 jobs:
   deploy:
     name: Deploy ${{ github.event.inputs.stage }}
     runs-on: ubuntu-latest
     env:
-      duration: ${{ github.event.inputs.sleep }}
+      duration: ${{ github.event.inputs.sleep || '30s' }}
     steps:
       - run: |
           sleep $duration
