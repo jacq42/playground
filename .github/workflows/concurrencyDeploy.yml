@@ -23,6 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "${{ github.event.inputs.sleepDuration }}"
-          sleep ${{ github.event.inputs.sleepDuration }}
+          echo "${{ inputs.sleepDuration }}"
+          sleep ${{ inputs.sleepDuration }}
           echo "deploy ${{ github.event.inputs.stage }}"
