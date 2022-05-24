@@ -3,14 +3,14 @@ name: Concurrency Starter
 on:
   workflow_dispatch
   
-jobs:
+jobs: 
   deploy-develop:
     name: Deploy develop
     uses: ./.github/workflows/concurrencyDeploy.yml
     with:
       stage: develop
       
-   deploy-live:
+  deploy-live:
     name: Deploy live
     uses: ./.github/workflows/concurrencyDeploy.yml
     with:
