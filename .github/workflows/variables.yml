@@ -14,9 +14,16 @@ env:
   SKIP_JOB: ${{ github.event.inputs.skipJob || false }}
   
 jobs:
-  example-job:
+  tests:
     name: Tests
     if: github.event.inputs.skipJob == 'false' || github.event.inputs.skipJob == null
     runs-on: ubuntu-latest
     steps:
       - run: echo "run tests"
+      
+  after-tests:
+    name: deploy
+    if: success() || github.event.inputs.skipJob
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "run after test"
