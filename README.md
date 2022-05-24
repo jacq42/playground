@@ -10,6 +10,7 @@ Contains examples for GitHub actions: :rocket:
 * [Trigger by workflow call](https://github.com/jacq42/playground/actions/workflows/reusableSkip.yml)
 * [Print to summary](https://github.com/jacq42/playground/actions/workflows/starter.yml)
 * [Workflow conditions](https://github.com/jacq42/playground/actions/workflows/starter.yml)
+* [Context availability](https://github.com/jacq42/playground/actions/workflows/contexts.yml)
 
 ## Fancy markdown emojii :rocket:
 
