@@ -23,6 +23,7 @@ jobs:
       
   after-tests:
     name: deploy
+    needs: [ tests ]
     if: success() || github.event.inputs.skipJob
     runs-on: ubuntu-latest
     steps:
