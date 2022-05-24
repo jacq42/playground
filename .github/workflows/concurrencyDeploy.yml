@@ -17,4 +17,6 @@ jobs:
     name: Deploy ${{ github.event.inputs.stage }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "deploy ${{ github.event.inputs.stage }}"
+      - run: |
+          wait(1000)
+          echo "deploy ${{ github.event.inputs.stage }}"
