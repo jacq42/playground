@@ -13,7 +13,7 @@ on:
         type: string
       sleep:
         description: 'time to sleep'
-        required: true
+        required: false
         type: string
         default: 30s
         
