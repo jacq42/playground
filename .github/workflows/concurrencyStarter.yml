@@ -6,6 +6,7 @@ on:
 jobs: 
   deploy-develop:
     name: Deploy develop
+    concurrency: deploy-develop
     uses: ./.github/workflows/concurrencyDeploy.yml
     with:
       stage: develop
@@ -13,6 +14,7 @@ jobs:
       
   deploy-fit:
     name: Deploy fit
+    concurrency: deploy-fit
     uses: ./.github/workflows/concurrencyDeploy.yml
     with:
       stage: fit
@@ -20,6 +22,7 @@ jobs:
       
   deploy-live:
     name: Deploy live
+    concurrency: deploy-live
     needs: [ deploy-fit ]
     uses: ./.github/workflows/concurrencyDeploy.yml
     with:
