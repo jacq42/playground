@@ -25,5 +25,6 @@ jobs:
       duration: ${{ github.event.inputs.sleep || '30s' }}
     steps:
       - run: |
+          echo "$duration"
           sleep $duration
           echo "deploy ${{ github.event.inputs.stage }}"
