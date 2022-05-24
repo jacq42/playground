@@ -3,6 +3,12 @@ name: Variables
 on:
   push:
      branches: [ main ]
+  workflow_call:
+    inputs:
+      skipJob: 
+        type: boolean
+        default: true
+        required: false
   workflow_dispatch:
     inputs:
       skipJob: 
@@ -16,7 +22,7 @@ env:
 jobs:
   tests:
     name: Tests
-    if: github.event.inputs.skipJob == 'false' || github.event.inputs.skipJob == null
+    if: github.event.inputs.skipJob == 'false'
     runs-on: ubuntu-latest
     steps:
       - run: echo "run tests"
