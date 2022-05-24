@@ -11,6 +11,11 @@ on:
         description: 'Environment'
         required: true
         type: string
+      sleep:
+        description: 'time to sleep'
+        required: true
+        type: string
+        default: 30s
         
 jobs:
   deploy:
@@ -18,5 +23,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          sleep 30s
+          sleep ${{ github.event.inputs.sleep }}
           echo "deploy ${{ github.event.inputs.stage }}"
