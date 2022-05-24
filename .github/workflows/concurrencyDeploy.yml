@@ -1,5 +1,11 @@
 name: Concurrency Deploy
 
+# concurrency: deploy-${{ github.event.inputs.stage }}
+
+# definition of a concurrency group at this position did not work
+# only the github context can be used
+# but we need inputs.stage instead of github.event.inputs.stage
+
 on:
   workflow_call:
     inputs:
