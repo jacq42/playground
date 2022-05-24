@@ -20,7 +20,7 @@ on:
 jobs:
   deploy:
     name: Deploy ${{ github.event.inputs.stage }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
     env:
       duration: ${{ github.event.inputs.sleep || '30s' }}
     steps:
