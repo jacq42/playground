@@ -16,7 +16,7 @@ env:
 jobs:
   example-job:
     name: Tests
-    if: $SKIP_JOB == 'false'
+    if: SKIP_JOB == 'false'
     runs-on: ubuntu-latest
     steps:
       - run: echo "run tests"
