@@ -1,6 +1,8 @@
 name: Concurrency Deploy
 
-concurrency: deploy
+concurrency: 
+  group: deploy
+  cancel-in-progress: true
 
 on:
   workflow_call:
