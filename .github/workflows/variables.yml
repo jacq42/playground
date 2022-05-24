@@ -1,0 +1,22 @@
+name: Variables
+
+on:
+  push:
+     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      skipJob: 
+        type: boolean
+        default: true
+        required: false
+        
+env:
+  SKIP_JOB: ${{ github.event.inputs.skipJob || false }}
+  
+jobs:
+  example-job:
+    name: Tests
+    if: env.SKIP_JOB == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "run tests"
