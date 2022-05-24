@@ -2,13 +2,7 @@ name: Contexts
 
 on:
   push:
-     branches: [ main ]     
-  workflow_call:
-    inputs:
-      skipJob: 
-        type: boolean
-        default: true
-        required: false
+     branches: [ main ]
   workflow_dispatch:
     inputs:
       skipJob: 
@@ -23,7 +17,7 @@ jobs:
   tests:
     name: Tests
     # job conditions cannot use the env context: https://docs.github.com/en/actions/learn-github-actions/contexts#context-availability
-    if: github.event.inputs.skipJob == 'false' || github.event.inputs.skipJob == 'false'
+    if: github.event.inputs.skipJob == 'false' || github.event.inputs.skipJob == null
     runs-on: ubuntu-latest
     steps:
       - run: echo "run tests"
