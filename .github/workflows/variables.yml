@@ -16,7 +16,7 @@ env:
 jobs:
   example-job:
     name: Tests
-    if: SKIP_JOB == 'false'
+    if: github.event.inputs.skipJob == 'false' || github.event.inputs.skipJob == null
     runs-on: ubuntu-latest
     steps:
       - run: echo "run tests"
