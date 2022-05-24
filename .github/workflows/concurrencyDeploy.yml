@@ -18,5 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          wait(1000)
+          sleep 1000
           echo "deploy ${{ github.event.inputs.stage }}"
