@@ -10,7 +10,7 @@ jobs:
     concurrency: deploy
     with:
       stage: develop
-      sleep: 1m
+      sleepDuration: '1m'
       
   deploy-fit:
     name: Deploy fit
@@ -18,7 +18,7 @@ jobs:
     concurrency: deploy
     with:
       stage: fit
-      sleep: 10s
+      sleepDuration: '10s'
       
   deploy-live:
     name: Deploy live
