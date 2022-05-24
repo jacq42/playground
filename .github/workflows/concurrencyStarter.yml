@@ -7,11 +7,13 @@ jobs:
   deploy-develop:
     name: Deploy develop
     uses: ./.github/workflows/concurrencyDeploy.yml
+    concurrency: deploy
     with:
       stage: develop
       
   deploy-live:
     name: Deploy live
     uses: ./.github/workflows/concurrencyDeploy.yml
+    concurrency: deploy
     with:
       stage: live
