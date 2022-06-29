@@ -8,9 +8,13 @@ jobs:
     name: Test dorny test reporter
     runs-on: ubuntu-latest
     steps:
+      - name: Copy test data
+        run: |
+          ./gradlew --no-daemon testClasses
+
       - name: Generate test report
         uses: dorny/test-reporter@v1
         with:
           name: Test Results
-          path: ./**/src/main/resources/test/TEST-*.xml
+          path: ./**/build/resources/main/test/TEST-*.xml
           reporter: java-junit
