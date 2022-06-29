@@ -26,5 +26,5 @@ jobs:
         uses: dorny/test-reporter@v1
         with:
           name: Test Results
-          path: ./**/build/resources/main/test/TEST-*.xml
+          path: ./**/build/test-results/test/TEST-*.xml
           reporter: java-junit
