@@ -18,9 +18,9 @@ jobs:
           distribution: 'zulu'
           cache: 'gradle'
 
-      - name: Copy test data
+      - name: Create test data
         run: |
-          ./gradlew --no-daemon testClasses
+          ./gradlew --no-daemon test
 
       - name: Generate test report
         uses: dorny/test-reporter@v1
