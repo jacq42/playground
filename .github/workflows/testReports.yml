@@ -1,0 +1,16 @@
+name: Test reporter
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  dorny:
+    name: Test dorny test reporter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate test report
+        uses: dorny/test-reporter@v1
+        with:
+          name: Test Results
+          path: ./**/src/main/resources/test/TEST-*.xml
+          reporter: java-junit
