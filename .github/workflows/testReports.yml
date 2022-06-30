@@ -15,8 +15,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  test-reporters:
-    name: Test different test report reporters
+  test-and-report:
+    name: Test and report
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest code
