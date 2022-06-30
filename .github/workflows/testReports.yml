@@ -5,8 +5,9 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
   checks: write
+  pull-requests: write
 
 jobs:
   dorny:
@@ -35,8 +36,15 @@ jobs:
           path: build/reports/
 
       - name: Generate test report
+        if: always()
         uses: dorny/test-reporter@v1
         with:
           name: Test Results
           path: ./**/build/test-results/test/TEST-*.xml
           reporter: java-junit
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: "test-results/**/*.xml"
