@@ -38,7 +38,7 @@ jobs:
   test-and-report-dorny:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.dorny == true }}
+    if: ${{ github.event.inputs.dorny }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -72,7 +72,7 @@ jobs:
   test-and-report-enricomi:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.enricomi == true }}
+    if: ${{ github.event.inputs.enricomi }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -102,24 +102,10 @@ jobs:
           check_name: EnricoMi Test Results
           files: ./**/build/test-results/test/TEST-*.xml
 
-      - name: Generate test report
-        uses: mikepenz/action-junit-report@v3
-        if: github.event.inputs.mikepenz
-        with:
-          check_name: MikePenz Test Results
-          report_paths: ./**/build/test-results/test/TEST-*.xml
-
-      - name: Generate test report
-        if: github.event.inputs.scacap
-        uses: scacap/action-surefire-report@v1
-        with:
-          check_name: ScaCap Test Results
-          report_paths: ./**/build/test-results/test/TEST-*.xml
-
   test-and-report-mikepenz:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.mikepenz == true }}
+    if: ${{ github.event.inputs.mikepenz }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -149,17 +135,10 @@ jobs:
           check_name: MikePenz Test Results
           report_paths: ./**/build/test-results/test/TEST-*.xml
 
-      - name: Generate test report
-        if: github.event.inputs.scacap
-        uses: scacap/action-surefire-report@v1
-        with:
-          check_name: ScaCap Test Results
-          report_paths: ./**/build/test-results/test/TEST-*.xml
-
   test-and-report-scacap:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.scacap == true }}
+    if: ${{ github.event.inputs.scacap }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
