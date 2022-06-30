@@ -38,7 +38,7 @@ jobs:
   test-and-report-dorny:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.dorny }}
+    if: ${{ github.event.inputs.dorny == true }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -72,7 +72,7 @@ jobs:
   test-and-report-enricomi:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.enricomi }}
+    if: ${{ github.event.inputs.enricomi == true }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -105,7 +105,7 @@ jobs:
   test-and-report-mikepenz:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.mikepenz }}
+    if: ${{ github.event.inputs.mikepenz == true }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -138,7 +138,7 @@ jobs:
   test-and-report-scacap:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.scacap }}
+    if: ${{ github.event.inputs.scacap == true }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
