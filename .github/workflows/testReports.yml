@@ -19,6 +19,7 @@ on:
           - enricomi
           - mikepenz
           - scacap
+          - all
 
 permissions:
   id-token: write
@@ -30,7 +31,7 @@ jobs:
   test-and-report-dorny:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.testReporter == 'dorny' }}
+    if: ${{ github.event.inputs.testReporter == 'dorny' || github.event.inputs.testReporter == 'all' }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -64,7 +65,7 @@ jobs:
   test-and-report-enricomi:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.testReporter == 'enricomi' }}
+    if: ${{ github.event.inputs.testReporter == 'enricomi' || github.event.inputs.testReporter == 'all' }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -97,7 +98,7 @@ jobs:
   test-and-report-mikepenz:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.testReporter == 'mikepenz' }}
+    if: ${{ github.event.inputs.testReporter == 'mikepenz' || github.event.inputs.testReporter == 'all' }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -130,7 +131,7 @@ jobs:
   test-and-report-scacap:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.testReporter == 'scacap' }}
+    if: ${{ github.event.inputs.testReporter == 'scacap' || github.event.inputs.testReporter == 'all' }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
