@@ -39,7 +39,7 @@ jobs:
         if: always()
         uses: dorny/test-reporter@v1
         with:
-          name: Test Results
+          name: Dorny Test Results
           path: ./**/build/test-results/test/TEST-*.xml
           reporter: java-junit
 
@@ -47,4 +47,5 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
+          check_name: EnricoMi Test Results
           files: ./**/build/test-results/test/TEST-*.xml
