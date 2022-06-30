@@ -7,6 +7,26 @@ on:
         description: test category [success, failure]
         type: string
         required: true
+      dorny:
+        description: enable dorny test reporter
+        type: boolean
+        default: false
+        required: false
+      enricomi:
+        description: enable enricomi test reporter
+        type: boolean
+        default: false
+        required: false
+      mikepenz:
+        description: enable mikepenz test reporter
+        type: boolean
+        default: false
+        required: false
+      scacap:
+        description: enable scacap test reporter
+        type: boolean
+        default: false
+        required: false
 
 permissions:
   id-token: write
@@ -41,7 +61,7 @@ jobs:
           path: build/reports/
 
       - name: Generate test report
-        if: always()
+        if: github.event.inputs.dorny
         uses: dorny/test-reporter@v1
         with:
           name: Dorny Test Results
@@ -50,20 +70,20 @@ jobs:
 
       - name: Generate test report
         uses: EnricoMi/publish-unit-test-result-action@v1
-        if: always()
+        if: github.event.inputs.enricomi
         with:
           check_name: EnricoMi Test Results
           files: ./**/build/test-results/test/TEST-*.xml
 
       - name: Generate test report
         uses: mikepenz/action-junit-report@v3
-        if: always()
+        if: github.event.inputs.mikepenz
         with:
           check_name: MikePenz Test Results
           report_paths: ./**/build/test-results/test/TEST-*.xml
 
       - name: Generate test report
-        if: always()
+        if: github.event.inputs.scacap
         uses: scacap/action-surefire-report@v1
         with:
           check_name: ScaCap Test Results
