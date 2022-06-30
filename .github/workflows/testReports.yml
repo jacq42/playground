@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       testCategory:
-        description: test category
+        description: test category [success, failure]
         type: string
         required: true
 
