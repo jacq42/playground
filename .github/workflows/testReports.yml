@@ -2,7 +2,12 @@ name: Test reporter
 
 on:
   workflow_dispatch:
-  
+
+permissions:
+  id-token: write
+  contents: read
+  checks: write
+
 jobs:
   dorny:
     name: Test dorny test reporter
