@@ -33,5 +33,8 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Test> {
-    useJUnitPlatform()
+    val category = System.getProperty("testCategory")
+    useJUnitPlatform {
+        includeTags(category)
+    }
 }

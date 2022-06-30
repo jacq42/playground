@@ -2,6 +2,11 @@ name: Test reporter
 
 on:
   workflow_dispatch:
+    inputs:
+      testCategory:
+        description: test category
+        type: string
+        required: true
 
 permissions:
   id-token: write
@@ -26,7 +31,7 @@ jobs:
 
       - name: Create test data
         run: |
-          ./gradlew --no-daemon test
+          ./gradlew --no-daemon test -DtestCategory=${{ github.event.inputs.testCategory }}
 
       - name: Upload reports
         if: always()
