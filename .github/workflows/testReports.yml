@@ -7,26 +7,10 @@ on:
         description: test category [success, failure]
         type: string
         required: true
-      dorny:
-        description: enable dorny test reporter
-        type: boolean
-        default: false
-        required: false
-      enricomi:
-        description: enable enricomi test reporter
-        type: boolean
-        default: false
-        required: false
-      mikepenz:
-        description: enable mikepenz test reporter
-        type: boolean
-        default: false
-        required: false
-      scacap:
-        description: enable scacap test reporter
-        type: boolean
-        default: false
-        required: false
+      testReporter:
+        description: test reporter [dorny, enricomi, mikepenz, scacap]
+        type: string
+        required: true
 
 permissions:
   id-token: write
@@ -38,7 +22,7 @@ jobs:
   test-and-report-dorny:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.dorny == true }}
+    if: ${{ github.event.inputs.testReporter == 'dorny' }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -72,7 +56,7 @@ jobs:
   test-and-report-enricomi:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.enricomi == true }}
+    if: ${{ github.event.inputs.testReporter == 'enricomi' }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -105,7 +89,7 @@ jobs:
   test-and-report-mikepenz:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.mikepenz == true }}
+    if: ${{ github.event.inputs.testReporter == 'mikepenz' }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
@@ -138,7 +122,7 @@ jobs:
   test-and-report-scacap:
     name: Test and report
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.scacap == true }}
+    if: ${{ github.event.inputs.testReporter == 'scacap' }}
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v3
