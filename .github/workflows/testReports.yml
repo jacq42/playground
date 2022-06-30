@@ -61,4 +61,5 @@ jobs:
         if: always()
         uses: scacap/action-surefire-report@v1
         with:
+          check_name: ScaCap Test Results
           report_paths: ./**/build/test-results/test/TEST-*.xml

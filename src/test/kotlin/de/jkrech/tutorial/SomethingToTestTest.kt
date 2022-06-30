@@ -8,11 +8,20 @@ internal class SomethingToTestTest {
     private var testee = SomethingToTest()
 
     @Test
-    fun `should return true`() {
+    fun `should success`() {
         // when
         val result = testee.testing()
 
         // then
         assertEquals(true, result)
+    }
+
+    @Test
+    fun `should fail`() {
+        // when
+        val result = testee.testing()
+
+        // then
+        assertEquals(false, result)
     }
 }
