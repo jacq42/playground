@@ -15,7 +15,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  dorny:
+  test-reporter:
     name: Test dorny test reporter
     runs-on: ubuntu-latest
     steps:
