@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   test-reporter:
-    name: Test dorny test reporter
+    name: Test different test reporter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest code
