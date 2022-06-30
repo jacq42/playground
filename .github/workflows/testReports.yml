@@ -5,12 +5,20 @@ on:
     inputs:
       testCategory:
         description: test category [success, failure]
-        type: string
         required: true
+        type: choice
+        options:
+          - success
+          - failure
       testReporter:
         description: test reporter [dorny, enricomi, mikepenz, scacap]
-        type: string
         required: true
+        type: choice
+        options:
+          - dorny
+          - enricomi
+          - mikepenz
+          - scacap
 
 permissions:
   id-token: write
