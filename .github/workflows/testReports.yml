@@ -43,16 +43,22 @@ jobs:
           path: ./**/build/test-results/test/TEST-*.xml
           reporter: java-junit
 
-      - name: Publish Test Results
+      - name: Generate test report
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
           check_name: EnricoMi Test Results
           files: ./**/build/test-results/test/TEST-*.xml
 
-      - name: Publish Test Report
+      - name: Generate test report
         uses: mikepenz/action-junit-report@v3
         if: always()
         with:
           check_name: MikePenz Test Results
+          report_paths: ./**/build/test-results/test/TEST-*.xml
+
+      - name: Generate test report
+        if: always()
+        uses: scacap/action-surefire-report@v1
+        with:
           report_paths: ./**/build/test-results/test/TEST-*.xml
