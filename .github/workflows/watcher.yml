@@ -2,8 +2,10 @@ name: Watcher
 
 on:
   push:
-    branches: [ main ]
-    paths: [ /docs/events/ ]
+    branches:
+      - 'main'
+    paths:
+      - 'docs/events/*'
   
 jobs: 
   do-it:
