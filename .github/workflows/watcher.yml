@@ -12,6 +12,7 @@ jobs:
     name: do it
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "### :clipboard: Triggered by ${{ github.event }}" >> $GITHUB_STEP_SUMMARY
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
     
