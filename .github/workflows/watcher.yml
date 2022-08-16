@@ -13,5 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "### :clipboard: Triggered by push on docs/events " >> $GITHUB_STEP_SUMMARY
+          echo "### :clipboard: Triggered by ${{ github.event }}" >> $GITHUB_STEP_SUMMARY
     
