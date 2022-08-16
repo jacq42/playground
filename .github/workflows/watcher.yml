@@ -1,0 +1,15 @@
+name: Watcher
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ /docs/events/ ]
+  
+jobs: 
+  do-it:
+    name: do it
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "### :clipboard: Triggered by push on docs/events " >> $GITHUB_STEP_SUMMARY
+    
