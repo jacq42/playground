@@ -7,23 +7,9 @@ jobs:
   create-label:
     name: Create label on the fly
     runs-on: ubuntu-latest
-    steps:
-      - name: Create label
-        env:
-          REPO: ${{ github.repository }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            /repos/$REPO/labels \
-            -f name='major' \
-            -f description='Major update for a dependency file' \
-            -f color='006B75'
-        
-            
+    steps:            
       - name: Create major label
-        run: gh label create major --description "Major update for a dependency file" --color 006B75 --repo $REPO
+        run: gh label create major --description "Major update for a dependency file" --color 006B75 --repo $REPO -f
         env:
           REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
