@@ -12,3 +12,4 @@ jobs:
         run: gh label create major --description "Major update for a dependency file" --color 006B75 --repo "$REPO"
         env:
           REPO: ${{ github.event.repository.name }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
