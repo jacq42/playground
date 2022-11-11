@@ -9,14 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create label
+        env:
+          REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api \
             --method POST \
             -H "Accept: application/vnd.github+json" \
-            /repos/${{ github.repository }}/labels \
+            /repos/$REPO/labels \
             -f name='major' \
             -f description='Major update for a dependency file' \
             -f color='006B75'
+        
             
       - name: Create major label
         run: gh label create major --description "Major update for a dependency file" --color 006B75 --repo $REPO
