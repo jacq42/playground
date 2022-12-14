@@ -16,4 +16,22 @@ jobs:
       - name: Dump GitHub context
         id: github_context_step
         run: echo '${{ toJSON(github) }}'
+        
+      - uses: dorny/paths-filter@v2
+        id: filter-path
+        with:
+          filters: |
+            docs:
+              - 'docs/**'
+            readme:
+              - 'README.md'
     
+      - name: print docs
+        if: steps.filter-path.outputs.docs == 'true'
+        run: |
+          echo "Changes on docs/" >> $GITHUB_STEP_SUMMARY
+          
+      - name: print readme
+        if: steps.filter-path.outputs.readme == 'true'
+        run: |
+          echo "Changes on Readme" >> $GITHUB_STEP_SUMMARY
