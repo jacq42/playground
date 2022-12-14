@@ -12,6 +12,7 @@ Contains examples for GitHub actions: :rocket:
 * [Workflow conditions](https://github.com/jacq42/playground/actions/workflows/starter.yml)
 * [Context availability](https://github.com/jacq42/playground/actions/workflows/contexts.yml)
 * [Different JUnit test report reporter](https://github.com/jacq42/playground/actions/workflows/testReports.yml)
+* [Watcher on push events](https://github.com/jacq42/playground/blob/main/.github/workflows/watcher.yml)
 
 ## Fancy markdown emojii :rocket:
 
