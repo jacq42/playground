@@ -15,7 +15,10 @@ jobs:
     steps:
       - name: Dump GitHub context
         id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+        run: | 
+          echo '${{ toJSON(github) }}'
+          echo "See ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "Compare: ${{ github.event.compare }}" >> $GITHUB_STEP_SUMMARY
         
       - uses: actions/checkout@v3
       
@@ -31,10 +34,9 @@ jobs:
       - name: print docs
         if: steps.filter-path.outputs.docs == 'true'
         run: |
-          echo "Changes on docs/" >> $GITHUB_STEP_SUMMARY
-          echo "See ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "Changes to docs/" >> $GITHUB_STEP_SUMMARY
           
       - name: print readme
         if: steps.filter-path.outputs.readme == 'true'
         run: |
-          echo "Changes on Readme" >> $GITHUB_STEP_SUMMARY
+          echo "Changes to README" >> $GITHUB_STEP_SUMMARY
