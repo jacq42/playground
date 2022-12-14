@@ -32,7 +32,7 @@ jobs:
         if: steps.filter-path.outputs.docs == 'true'
         run: |
           echo "Changes on docs/" >> $GITHUB_STEP_SUMMARY
-          echo "See ${{ github.repositoryUrl}}/commit/${{ github.sha }}"
+          echo "See ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
           
       - name: print readme
         if: steps.filter-path.outputs.readme == 'true'
