@@ -1,0 +1,30 @@
+name: With Fallback
+
+on:
+  workflow_dispatch
+  
+jobs: 
+  get-credentials:
+    name: Get credentials
+    runs-on: ubuntu-latest
+    steps:            
+      - name: Should fail
+        id: none-fallbacl
+        run: |
+          exit 1
+        
+      - name: Fallback
+        if: failure()
+        id: fallback
+        run: |
+          echo "credentials=fallback" >> $GITHUB_OUTPUT
+          
+      - name: get credentials
+        id: get-credentials
+        env:
+          CREDENTIALS: steps.none-fallback.outputs.credentials
+          CREDENTIALS_FALLBACK: steps.fallback.outputs.credentials
+        run: |
+          echo "$CREDENTIALS"
+          echo "$CREDENTIALS_FALLBACK"
+        
