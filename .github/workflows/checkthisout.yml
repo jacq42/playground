@@ -1,0 +1,12 @@
+name: Docker pull example
+
+on:
+  workflow_dispatch:    
+  
+jobs:
+  pull:
+    name: Pull
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          docker pull sonarqube:latest
