@@ -21,7 +21,7 @@ jobs:
           echo "~~~" >> $GITHUB_STEP_SUMMARY
           
   workflow-to-be-skipped:
-    name: Tests
+    name: "Tests: :repeat:"
     uses: ./.github/workflows/withSkippedJobs.yml
     
   workflow-should-run-after-skipped-workflow:
