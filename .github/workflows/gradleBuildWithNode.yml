@@ -33,6 +33,17 @@ jobs:
           ./gradlew npmEsLint
           ./gradlew npmTest 
 
+  gradleBuildWithSetupGradle2:
+    name: Gradle build with setup-gradle (2)
+    needs: gradleBuildWithSetupGradle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gradle/actions/setup-gradle@v3
+      - run: |
+          ./gradlew npmEsLint
+          ./gradlew npmTest 
+
   gradleBuildWithSetupNode:
     name: Gradle build with setup-node
     runs-on: ubuntu-latest
