@@ -141,3 +141,5 @@ gradle-app.setting
 /.idea/
 /.vscode/
 /bin/
+node_modules/
+coverage/

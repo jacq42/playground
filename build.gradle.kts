@@ -1,3 +1,4 @@
+import com.github.gradle.node.npm.task.NpmTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -8,10 +9,33 @@ plugins {
     val kotlinVersion: String by project
 
     kotlin("jvm") version kotlinVersion
+    id("com.github.node-gradle.node") version "7.0.2"
 }
 
 repositories {
     mavenCentral()
+}
+
+node {
+    download.set(true)
+    version.set("20.11.1")
+    nodeProjectDir.set(file("${project.projectDir}/frontend"))
+}
+
+tasks.register<NpmTask>("npmEsLint") {
+    group = "frontend"
+    description = "Runs eslint on frontend"
+
+    dependsOn("npmInstall")
+    args.addAll("run", "eslint")
+}
+
+tasks.register<NpmTask>("npmTest") {
+    group = "frontend"
+    description = "Runs frontend tests"
+
+    dependsOn("npmInstall")
+    args.addAll("run", "test")
 }
 
 dependencies {
