@@ -24,11 +24,23 @@ jobs:
           ./gradlew npmTest 
 
   gradleBuildWithSetupGradle:
-    name: Gradle build
+    name: Gradle build with setup-gradle
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: gradle/actions/setup-gradle@v3
+      - run: |
+          ./gradlew npmEsLint
+          ./gradlew npmTest 
+
+  gradleBuildWithSetupNode:
+    name: Gradle build with setup-node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - run: |
           ./gradlew npmEsLint
           ./gradlew npmTest 
