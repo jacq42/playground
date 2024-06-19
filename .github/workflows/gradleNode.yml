@@ -5,16 +5,6 @@ on:
   workflow_call:
   
 jobs:
-  info:
-    name: Print input values
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "### :clipboard: Input parameters of this workflow run: " >> $GITHUB_STEP_SUMMARY
-          echo "~~~" >> $GITHUB_STEP_SUMMARY
-          echo "no more params" >> $GITHUB_STEP_SUMMARY
-          echo "~~~" >> $GITHUB_STEP_SUMMARY
-          
   gradleBuild:
     strategy:
       matrix:
