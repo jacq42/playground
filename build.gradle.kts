@@ -17,7 +17,7 @@ repositories {
 }
 
 node {
-    download.set(true)
+    download.set(false)
     distBaseUrl.set("https://www.example.com/")
     version.set("20.11.1")
     nodeProjectDir.set(file("${project.projectDir}/frontend"))
