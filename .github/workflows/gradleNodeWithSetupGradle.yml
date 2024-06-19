@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: gradle/actions/setup-gradle@v3
       - run: |
+          ./gradlew npm_version
           ./gradlew npmEsLint
           ./gradlew npmTest 
 

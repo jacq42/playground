@@ -14,5 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
+          ./gradlew npm_version
           ./gradlew npmEsLint
           ./gradlew npmTest 

@@ -17,5 +17,6 @@ jobs:
         with:
           node-version: 20
       - run: |
+          ./gradlew npm_version
           ./gradlew npmEsLint
           ./gradlew npmTest 
