@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         version: [ 1, 2, 3, 4, 5 ]
-    name: "With setup-node ${{ matrix.version }}
+    name: "With setup-node run ${{ matrix.version }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
