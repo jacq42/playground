@@ -1,0 +1,29 @@
+name: Starter Gradle (node plugin)
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  info:
+    name: Print input values
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "### :clipboard: Input parameters of this workflow run: " >> $GITHUB_STEP_SUMMARY
+          echo "~~~" >> $GITHUB_STEP_SUMMARY
+          echo "no more params" >> $GITHUB_STEP_SUMMARY
+          echo "~~~" >> $GITHUB_STEP_SUMMARY
+          
+  workflow-gradle-node:
+    name: Gradle node
+    uses: ./.github/workflows/gradleNode.yml
+
+  workflow-gradle-node-setup-gradle:
+    name: Gradle node with setup gradle
+    uses: ./.github/workflows/gradleNodeSetupGradle.yml
+
+  workflow-gradle-node-setup-node:
+    name: Gradle node with setup node
+    uses: ./.github/workflows/gradleNodeSetupNode.yml
+
+

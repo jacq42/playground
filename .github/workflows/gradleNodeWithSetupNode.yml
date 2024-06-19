@@ -1,0 +1,31 @@
+name: Gradle (node plugin + setup-node)
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  
+jobs:
+  info:
+    name: Print input values
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "### :clipboard: Input parameters of this workflow run: " >> $GITHUB_STEP_SUMMARY
+          echo "~~~" >> $GITHUB_STEP_SUMMARY
+          echo "no more params" >> $GITHUB_STEP_SUMMARY
+          echo "~~~" >> $GITHUB_STEP_SUMMARY
+          
+  gradleBuildWithSetupNode:
+    strategy:
+      matrix:
+        version: [ 1, 2, 3, 4, 5 ]
+    name: "With setup-node ${{ matrix.version }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: |
+          ./gradlew npmEsLint
+          ./gradlew npmTest 
