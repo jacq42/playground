@@ -121,7 +121,7 @@ jobs:
           path: build/reports/
 
       - name: Generate test report
-        uses: mikepenz/action-junit-report@v3
+        uses: mikepenz/action-junit-report@v4
         if: always()
         with:
           check_name: MikePenz Test Results
