@@ -20,10 +20,10 @@ jobs:
 
   workflow-gradle-node-setup-gradle:
     name: Gradle node with setup gradle
-    uses: ./.github/workflows/gradleNodeSetupGradle.yml
+    uses: ./.github/workflows/gradleNodeWithSetupGradle.yml
 
   workflow-gradle-node-setup-node:
     name: Gradle node with setup node
-    uses: ./.github/workflows/gradleNodeSetupNode.yml
+    uses: ./.github/workflows/gradleNodeWithSetupNode.yml
 
 
