@@ -2,6 +2,7 @@ name: Gradle (node plugin + setup-gradle)
 
 on:
   workflow_dispatch:
+  workflow_call:
   
 jobs:
   info:
