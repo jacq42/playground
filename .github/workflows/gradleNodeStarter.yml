@@ -26,4 +26,8 @@ jobs:
     name: Gradle node with setup node
     uses: ./.github/workflows/gradleNodeWithSetupNode.yml
 
+  workflow-gradle-node-setup-gradle-and-node:
+    name: Gradle node with setup gradle and node
+    uses: ./.github/workflows/gradleNodeWithSetupGradleAndNode.yml
+
 
