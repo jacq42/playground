@@ -2,7 +2,7 @@ import com.github.gradle.node.npm.task.NpmTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
-    extra["kotlinVersion"] = "1.6.20"
+    extra["kotlinVersion"] = "2.0.0"
 }
 
 plugins {
